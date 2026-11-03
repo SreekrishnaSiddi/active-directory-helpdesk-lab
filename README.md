@@ -116,4 +116,103 @@ Configured a 900-second (15-minute) inactivity limit for domain-joined workstati
 
 ### 6. Windows Client Domain Integration
 
-Installed Windows 11 Pro on a second VirtualBox VM named
+Installed Windows 11 Pro on a second VirtualBox VM named `CORP-WIN01`.
+
+Configured the client to use the domain controller for DNS and successfully joined the workstation to `corp.novatech.com`.
+
+Verified Active Directory authentication using a fictional domain user account.
+
+**Windows 11 Client**
+
+![Windows Client Installation](screenshots/24-Windows-Client-Installation.png)
+
+**DNS Configuration**
+
+![Client DNS](screenshots/25-Windows-Client-DNS.png)
+
+**Domain Controller Discovery**
+
+![Domain Controller Discovery](screenshots/27-Domain-Controller-Discovery.png)
+
+**Domain Membership**
+
+![Domain Join](screenshots/28-Domain-Join-Verification.png)
+
+**Domain User Authentication**
+
+![Domain User Login](screenshots/29-Domain-User-Login.png)
+
+### 7. Group Policy Verification
+
+Refreshed Group Policy on the domain-joined Windows workstation using:
+
+`gpupdate /force`
+
+Verified the applied Group Policy Objects using:
+
+`gpresult /r /scope computer`
+
+Confirmed that the Workstation Security Policy and Default Domain Policy were successfully applied.
+
+![Group Policy Verification](screenshots/30-Group-Policy-Verification.png)
+
+### 8. Active Directory Password Reset
+
+Simulated a help desk password reset request for a fictional employee.
+
+Reset the employee's password through Active Directory Users and Computers and required a password change at the next logon.
+
+![Password Reset](screenshots/31-Active-Directory-Password-Reset.png)
+
+### 9. Account Lockout and Recovery
+
+Configured an Active Directory account lockout policy with:
+
+- Account lockout threshold: 5 invalid logon attempts
+- Lockout duration: 15 minutes
+- Reset account lockout counter: 15 minutes
+
+Created a dedicated test account, intentionally triggered an account lockout, and unlocked the account using Active Directory Users and Computers.
+
+Verified successful authentication afterward.
+
+**Account Lockout Policy**
+
+![Account Lockout Policy](screenshots/32-Account-Lockout-Policy.png)
+
+**Test User**
+
+![Test User Creation](screenshots/33-Test-User-Creation.png)
+
+**Account Lockout**
+
+![Account Lockout](screenshots/34-AD-Account-Lockout.png)
+
+**Account Unlock**
+
+![Account Unlock](screenshots/35-AD-Account-Unlock.png)
+
+## Skills Demonstrated
+
+- Windows Server Administration
+- Active Directory Domain Services
+- Domain Controller Configuration
+- DNS Configuration and Troubleshooting
+- Organizational Unit Management
+- User Account Provisioning
+- Security Group Administration
+- Group Policy Configuration and Verification
+- Windows Domain Joining
+- Domain User Authentication
+- Active Directory Password Resets
+- Account Lockout Troubleshooting
+- Virtual Machine and Network Configuration
+- IT Help Desk Documentation
+
+## Project Outcome
+
+Successfully deployed and administered a functioning Active Directory domain in an isolated VirtualBox lab.
+
+Configured a Windows Server domain controller, joined a Windows 11 workstation to the domain, managed fictional employee accounts and security groups, applied Group Policy, and completed hands-on password reset and account lockout recovery exercises.
+
+This project demonstrates foundational Windows system administration and Tier 1 IT Help Desk skills relevant to enterprise support environments.
